@@ -10,29 +10,27 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <header className="w-full px-12 py-8 flex justify-between items-center bg-gradient-to-b from-black/40 to-transparent">
-      <div className="flex items-center gap-6">
-        <div className="relative">
-           <div className="w-12 h-[1px] bg-blue-500/50 absolute -left-14 top-1/2"></div>
-           <h1 className="text-3xl font-orbitron font-bold tracking-[0.4em] text-white">
-            NEBULA<span className="text-blue-500 font-light opacity-80">OS</span>
-           </h1>
-        </div>
-        <div className="h-4 w-[1px] bg-slate-800"></div>
-        <div className="flex items-center gap-3">
-          <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-          <span className="text-[10px] font-orbitron tracking-widest text-slate-400">SYS_RELAY_ON</span>
+    <header className="w-full px-16 py-10 flex justify-between items-start pointer-events-none">
+      <div className="flex flex-col gap-1 pointer-events-auto">
+        <h1 className="text-4xl font-orbitron font-bold tracking-[0.6em] text-white flex items-center gap-4">
+          NEBULA <span className="text-blue-500/80 font-light text-2xl tracking-[0.2em]">OS_X</span>
+        </h1>
+        <div className="flex items-center gap-4 mt-2">
+          <div className="h-[1px] w-24 bg-gradient-to-r from-blue-500/80 to-transparent"></div>
+          <span className="text-[10px] font-mono tracking-[0.4em] text-blue-400 opacity-60 uppercase">Quantum_Surveillance_Interface</span>
         </div>
       </div>
 
-      <div className="flex gap-16 items-center">
+      <div className="flex flex-col items-end pointer-events-auto">
         <div className="text-right">
-          <p className="text-[20px] font-orbitron text-white leading-none mb-1 tracking-widest">
-            {time.toLocaleTimeString([], { hour12: false })}
+          <p className="text-3xl font-orbitron font-bold text-white tracking-widest glow-text">
+            {time.toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' })}
           </p>
-          <p className="text-[9px] font-orbitron text-blue-500/60 uppercase tracking-[0.3em]">
-            Stardate_{time.getFullYear()}.{time.getMonth()+1}
-          </p>
+          <div className="flex items-center justify-end gap-3 mt-1 opacity-40">
+            <span className="text-[10px] font-mono tracking-widest">STARDATE_{time.getFullYear()}.0{time.getMonth()+1}</span>
+            <div className="w-1 h-1 bg-blue-500 rounded-full"></div>
+            <span className="text-[10px] font-mono tracking-widest uppercase">Node_Primary</span>
+          </div>
         </div>
       </div>
     </header>
